@@ -79,6 +79,7 @@ public class SearchUI extends UI{
 		
 		//checkbox
 		CheckBox hostCheckbox = new CheckBox("Host");
+		CheckBox travelerCheckbox = new CheckBox("Traveler");
 		
 		//Button Accept
 		Button accept = new Button("Accept");
@@ -101,7 +102,25 @@ public class SearchUI extends UI{
 					secondaryLayout.setWidth("50%");
 				}
 			}
-			else if(!hostCheckbox.getValue()){
+			else if(travelerCheckbox.getValue()) {
+				/*Pair<Integer, Object> filtered = Controller.getInstance().action(Commands.CommandSearchTraveler, null);
+				if(filtered.getLeft() == 0) {
+					Notification notif = new Notification( "There are no users matching your criteria.");
+					notif.setDelayMsec(2000);
+					notif.setPosition(Position.MIDDLE_CENTER);
+					notif.show(Page.getCurrent());
+				}
+				else {
+					SearchUI.this.resultsLayout.removeAllComponents();
+					SearchUI.this.resultsLayout = new VerticalLayout();
+					SearchUI.this.results = (ArrayList)filtered.getRight();
+					SearchUI.this.resultsLayout = SearchUI.this.createResultPanel(results);
+					SearchUI.this.secondaryLayout.addComponent(resultsLayout);
+					SearchUI.this.resultsLayout.setMargin(false);
+					secondaryLayout.setWidth("50%");
+				}*/
+			}
+			else if(!hostCheckbox.getValue() && travelerCheckbox.getValue()){
 				Notification notif = new Notification( "There are no criterias for your filters.");
 				notif.setDelayMsec(2000);
 				notif.setPosition(Position.MIDDLE_CENTER);
@@ -113,6 +132,7 @@ public class SearchUI extends UI{
 		//
 		VerticalLayout v = new VerticalLayout();
 		v.addComponent(hostCheckbox);
+		v.addComponent(travelerCheckbox);
 		v.addComponent(accept);
 		
 		optionsPanel.setContent(v);
