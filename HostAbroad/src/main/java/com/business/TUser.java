@@ -9,13 +9,22 @@ public class TUser {
 	
 	public TUser() {};
 	
-	public TUser(String nickname, double rating, String description, boolean host, boolean traveler){
+	public TUser(String nickname, double rating, String description, boolean host){
+
 		this.nickname = nickname;
 		this.rating = rating;
 		this.description = description;
 		this.host = host;
 		this.traveler = traveler;
 	}
+	
+	public TUser(String nickname, double rating, boolean traveler, String description){
+		this.nickname = nickname;
+		this.rating = rating;
+		this.description = description;
+		this.setTraveler(traveler);
+	}
+	
 	
 	public TUser(String nickname, double rating, String description){
 		this.nickname = nickname;

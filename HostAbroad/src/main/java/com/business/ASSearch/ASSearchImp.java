@@ -73,7 +73,7 @@ public class ASSearchImp implements ASSearch {
 										user.getRating(),
 										user.getDescription()
 										));
-				}
+
 				tr.commit();
 			}
 			catch(NoResultException e){
@@ -89,9 +89,10 @@ public class ASSearchImp implements ASSearch {
 		
 		return list;
 	}
-	
+
 	@Override
 	public ArrayList<TUser> searchTraveler() {
+		
 		ArrayList<TUser> list = new ArrayList<TUser>();
 		
 		try {
